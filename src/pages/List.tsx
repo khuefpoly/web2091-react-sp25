@@ -8,7 +8,7 @@ export default function List() {
   const { data: dataSource } = useQuery({
     queryKey: ["products"],
     queryFn: async () => {
-      const { data } = await axios.get("http://localhost:3000/products");
+      const { data } = await axios.get("https://json-server-online-1.onrender.com/products");
       return data;
     },
   });
@@ -16,7 +16,7 @@ export default function List() {
   const { mutate } = useMutation({
     mutationFn: async (id) => {
       if (confirm("Xoas?")) {
-        await axios.delete(`http://localhost:3000/products/${id}`);
+        await axios.delete(`https://json-server-online-1.onrender.com/products/${id}`);
         message.success("xoa ok");
         qc.invalidateQueries({
           queryKey: ["products"],

@@ -9,7 +9,7 @@ export default function Add() {
 
   const { mutate } = useMutation({
     mutationFn: async (values) => {
-      await axios.post("http://localhost:3000/products", values);
+      await axios.post("https://json-server-online-1.onrender.com/products", values);
       message.success("them thanh cong");
       nav("/");
     },
